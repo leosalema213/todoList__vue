@@ -1,5 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { useStatic } from '../../composables/useStatic'
+
+const { iconFlex,iconFlexDark,iconGrid1,iconGrid1Dark,iconGrid2,iconGrid2Dark } = useStatic()
+
+
+
 const emit = defineEmits(['theme', 'avatar', 'display'])
 
 const props = defineProps(['avatar', 'saveAvatarInStorage', 'theme', 'display'])
@@ -15,6 +21,8 @@ const changeAvatar = (avatar) => {
   props.saveAvatarInStorage()
   container.classList.remove('open')
 }
+
+
 </script>
 
 <template>
@@ -31,8 +39,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'grid1')"
           :src="
             props.theme == 'dark'
-              ? '/src/assets/images/icon-grid1-dark.png'
-              : '/src/assets/images/icon-grid1.png'
+              ? iconGrid1Dark
+              : iconGrid1
           "
           alt="display"
         />
@@ -42,8 +50,8 @@ const changeAvatar = (avatar) => {
           class="icon__grid2"
           :src="
             props.theme == 'dark'
-              ? '/src/assets/images/icon-grid2-dark.png'
-              : '/src/assets/images/icon-grid2.png'
+              ? iconGrid2Dark
+              : iconGrid2
           "
           alt="display"
         />
@@ -52,8 +60,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'flex')"
           :src="
             props.theme == 'dark'
-              ? '/src/assets/images/dark/icon-flex-dark.png'
-              : '/src/assets/images/icon-flex.png'
+              ? iconFlexDark
+              : iconFlex
           "
         />
       </li>
