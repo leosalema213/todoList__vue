@@ -11,7 +11,7 @@ const openChangeModal = () => {
 
 const changeAvatar = (avatar) => {
   const container = document.querySelector('.avatar__list')
-  emit('avatar', `/dist/assets/avatar/avatar${avatar}.jpg`)
+  emit('avatar', `/src/assets/images/avatar${avatar}.jpg`)
   props.saveAvatarInStorage()
   container.classList.remove('open')
 }
@@ -31,8 +31,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'grid1')"
           :src="
             props.theme == 'dark'
-              ? 'dist/assets/icons/dark/icon-grid1-dark.png'
-              : 'dist/assets/icons/icon-grid1.png'
+              ? '/src/assets/images/icon-grid1-dark.png'
+              : '/src/assets/images/icon-grid1.png'
           "
           alt="display"
         />
@@ -42,8 +42,8 @@ const changeAvatar = (avatar) => {
           class="icon__grid2"
           :src="
             props.theme == 'dark'
-              ? 'dist/assets/icons/dark/icon-grid2-dark.png'
-              : 'dist/assets/icons/icon-grid2.png'
+              ? '/src/assets/images/icon-grid2-dark.png'
+              : '/src/assets/images/icon-grid2.png'
           "
           alt="display"
         />
@@ -52,8 +52,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'flex')"
           :src="
             props.theme == 'dark'
-              ? 'dist/assets/icons/dark/icon-flex-dark.png'
-              : 'dist/assets/icons/icon-flex.png'
+              ? '/src/assets/images/dark/icon-flex-dark.png'
+              : '/src/assets/images/icon-flex.png'
           "
         />
       </li>
@@ -62,13 +62,13 @@ const changeAvatar = (avatar) => {
         <img
           v-if="props.theme === 'light'"
           @click="emit('theme', 'dark')"
-          src="../../assets/icons/icons8-símbolo-da-lua-32.png"
+          src="../../assets/images/icons8-símbolo-da-lua-32.png"
           alt="theme"
         />
         <img
           v-else
           @click="emit('theme', 'light')"
-          src="../../assets/icons/dark/icons8-luz-acesa-32.png"
+          src="../../assets/images/icons8-luz-acesa-32.png"
         />
       </li>
 
@@ -76,20 +76,20 @@ const changeAvatar = (avatar) => {
         <img
           @click="openChangeModal"
           class="img__avatar"
-          :src="props.avatar == null ? '/dist/assets/avatar/avatar1.jpg' : props.avatar"
+          :src="props.avatar == null ? '/src/assets/images/avatar1.jpg' : props.avatar"
           alt="avatar"
         />
       </li>
 
       <li class="avatar__list">
-        <img @click="changeAvatar('1')" src="../../assets/avatar/avatar1.jpg" alt="" />
-        <img @click="changeAvatar('2')" src="../../assets/avatar/avatar2.jpg" alt="" />
-        <img @click="changeAvatar('3')" src="../../assets/avatar/avatar3.jpg" alt="" />
-        <img @click="changeAvatar('4')" src="../../assets/avatar/avatar4.jpg" alt="" />
-        <img @click="changeAvatar('5')" src="../../assets/avatar/avatar5.jpg" alt="" />
-        <img @click="changeAvatar('6')" src="../../assets/avatar/avatar6.jpg" alt="" />
-        <img @click="changeAvatar('7')" src="../../assets/avatar/avatar7.jpg" alt="" />
-        <img @click="changeAvatar('8')" src="../../assets/avatar/avatar8.jpg" alt="" />
+        <img @click="changeAvatar('1')" src="../../assets/images//avatar1.jpg" alt="" />
+        <img @click="changeAvatar('2')" src="../../assets/images//avatar2.jpg" alt="" />
+        <img @click="changeAvatar('3')" src="../../assets/images//avatar3.jpg" alt="" />
+        <img @click="changeAvatar('4')" src="../../assets/images//avatar4.jpg" alt="" />
+        <img @click="changeAvatar('5')" src="../../assets/images//avatar5.jpg" alt="" />
+        <img @click="changeAvatar('6')" src="../../assets/images//avatar6.jpg" alt="" />
+        <img @click="changeAvatar('7')" src="../../assets/images//avatar7.jpg" alt="" />
+        <img @click="changeAvatar('8')" src="../../assets/images//avatar8.jpg" alt="" />
       </li>
     </ul>
   </div>

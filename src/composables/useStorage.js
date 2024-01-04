@@ -5,7 +5,7 @@ export const useStorage = () => {
   const keyTASK = 'TASKS'
   const keyTHEME = 'THEME'
   const keyAVATAR = 'AVATAR'
-  const avatarDefault = '/src/assets/avatar/avatar1.jpg'
+  const avatarDefault = '/src/assets/images/avatar1.jpg'
   const { estado } = useState()
 
   if (typeof Storage !== 'undefined') {

@@ -21,21 +21,21 @@ const emit = defineEmits(['editing', 'nameEditing'])
     <div v-if="props.theme == 'dark'" class="task__options">
       <img
         @click="emit('editing', tarefa.id)"
-        src="../../assets/icons/dark/icon-lapis-dark.png"
+        src="../../assets/images/icon-lapis-dark.png"
         alt="edit"
       />
 
-      <img @click="deleteTask(tarefa.id)" src="../../assets/icons/dark/icon-lixo-dark.png" alt="del" />
+      <img @click="deleteTask(tarefa.id)" src="../../assets/images/icon-lixo-dark.png" alt="del" />
     </div>
 
     <div v-else class="task__options">
       <img
         @click="emit('editing', tarefa.id)"
-        src="../../assets/icons/icons8-lápis-16.png"
+        src="../../assets/images/icons8-lápis-16.png"
         alt="edit"
       />
 
-      <img @click="deleteTask(tarefa.id)" src="../../assets/icons/icons8-lixo-16.png" alt="del" />
+      <img @click="deleteTask(tarefa.id)" src="../../assets/images/icons8-lixo-16.png" alt="del" />
     </div>
   </div>
 </template>

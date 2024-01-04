@@ -159,7 +159,7 @@ h2 {
 }
 
 .task__status.theme__dark {
-  background-color: transparent;
+  background-color: #060922;
   border: 2px solid $color-blue-highlighted;
   box-shadow: 4px 4px 16px $shadow;
   color: $color-dark-gray;

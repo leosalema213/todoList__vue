@@ -16,13 +16,13 @@ const setTaskStatus = (tarefa) => {
 </script>
 
 <template>
-  <div class="task__footer" :class="props.theme == 'dark' && 'theme__dark'">
+  <div class="task__footer" :class="[props.theme == 'dark' && 'theme__dark', props.display]">
     <p v-if="!(props.isEditing === props.tarefa.id)" :class="props.tarefa.status">
       {{ setTaskStatus(props.tarefa) }}
     </p>
 
     <div v-else class="task__buttons">
-      <div class="task__actions" :class="props.display">
+      <div class="task__actions">
         <div class="input__group">
           <label for="pendente">pendente</label>
           <input
@@ -112,7 +112,7 @@ const setTaskStatus = (tarefa) => {
         flex-direction: row-reverse;
       }
     }
-    @media screen and (max-width:  992px) {
+    @media screen and (max-width: 992px) {
       display: flex;
       flex-direction: column;
 
@@ -124,11 +124,8 @@ const setTaskStatus = (tarefa) => {
           font-size: 14px;
         }
       }
-      
     }
   }
-
- 
 }
 
 .task__footer.theme__dark {
@@ -154,36 +151,13 @@ const setTaskStatus = (tarefa) => {
   }
 }
 
-.task__footer.grid,
+.task__footer.grid1,
 .grid2 {
   .task__buttons {
-    position: relative;
     margin-top: 0;
-    display: flex;
     flex-direction: column;
-    row-gap: 16px;
-    align-items: center;
+    margin-bottom: 16px;
     justify-content: center;
-
-    button {
-      padding: 6px 12px;
-      border: none;
-      color: $backgroundLIGHT;
-      font-weight: bold;
-      cursor: pointer;
-      font-family: sans-serif;
-    }
-    .task__actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-      .input__group {
-        display: flex;
-        gap: 2px;
-        flex-direction: row-reverse;
-      }
-    }
   }
 }
 </style>
