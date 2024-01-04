@@ -11,7 +11,7 @@ const openChangeModal = () => {
 
 const changeAvatar = (avatar) => {
   const container = document.querySelector('.avatar__list')
-  emit('avatar', `/src/assets/avatar/avatar${avatar}.jpg`)
+  emit('avatar', `/dist/assets/avatar/avatar${avatar}.jpg`)
   props.saveAvatarInStorage()
   container.classList.remove('open')
 }
@@ -31,8 +31,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'grid1')"
           :src="
             props.theme == 'dark'
-              ? 'src/assets/icons/dark/icon-grid1-dark.png'
-              : 'src/assets/icons/icon-grid1.png'
+              ? 'dist/assets/icons/dark/icon-grid1-dark.png'
+              : 'dist/assets/icons/icon-grid1.png'
           "
           alt="display"
         />
@@ -42,8 +42,8 @@ const changeAvatar = (avatar) => {
           class="icon__grid2"
           :src="
             props.theme == 'dark'
-              ? 'src/assets/icons/dark/icon-grid2-dark.png'
-              : 'src/assets/icons/icon-grid2.png'
+              ? 'dist/assets/icons/dark/icon-grid2-dark.png'
+              : 'dist/assets/icons/icon-grid2.png'
           "
           alt="display"
         />
@@ -52,8 +52,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'flex')"
           :src="
             props.theme == 'dark'
-              ? 'src/assets/icons/dark/icon-flex-dark.png'
-              : 'src/assets/icons/icon-flex.png'
+              ? 'dist/assets/icons/dark/icon-flex-dark.png'
+              : 'dist/assets/icons/icon-flex.png'
           "
         />
       </li>
@@ -76,7 +76,7 @@ const changeAvatar = (avatar) => {
         <img
           @click="openChangeModal"
           class="img__avatar"
-          :src="props.avatar == null ? '/src/assets/avatar/avatar1.jpg' : props.avatar"
+          :src="props.avatar == null ? '/dist/assets/avatar/avatar1.jpg' : props.avatar"
           alt="avatar"
         />
       </li>
