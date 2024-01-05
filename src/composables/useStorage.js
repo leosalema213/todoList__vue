@@ -29,9 +29,9 @@ export const useStorage = () => {
 
     if (theme == null) {
       estado.theme = 'light'
-      return
+      
     }
-    if (theme !== `light`) {
+    if (theme == `dark`) {
       estado.theme = theme
       const body = document.querySelector('body')
       body.style.backgroundColor = '#060922'
