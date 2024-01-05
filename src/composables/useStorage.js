@@ -26,12 +26,17 @@ export const useStorage = () => {
     } else {
       estado.tarefas = taskObject
     }
-    
-    if (theme !== `light`) {
-      estado.theme = theme
-      const body = document.querySelector('body')
-      body.style.backgroundColor = '#060922'
+
+    if (theme == null) {
+      estado.theme = 'light'
+
+      if (theme !== `light`) {
+        estado.theme = theme
+        const body = document.querySelector('body')
+        body.style.backgroundColor = '#060922'
+      }
     }
+    
   } else {
     console.log('Web storage is not supported')
   }
