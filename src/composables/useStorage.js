@@ -23,6 +23,8 @@ export const useStorage = () => {
     if (avatar != avatarDefault) estado.avatar = avatar
 
     if (taskObject !== null) estado.tarefas = taskObject
+    if (taskObject == null) estado.tarefas = []
+    
     if (theme !== `light`) {
       estado.theme = theme
       const body = document.querySelector('body')
