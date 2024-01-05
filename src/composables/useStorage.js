@@ -8,7 +8,7 @@ export const useStorage = () => {
   const keyTASK = 'TASKS'
   const keyTHEME = 'THEME'
   const keyAVATAR = 'AVATAR'
-  const avatarDefault = avatares.avatar1
+
   const { estado } = useState()
 
   if (typeof Storage !== 'undefined') {
@@ -17,13 +17,15 @@ export const useStorage = () => {
     const theme = localStorage.getItem(keyTHEME)
     const taskObject = JSON.parse(task)
     estado.tarefas = JSON.parse(task)
-
     
 
-    if (avatar != avatarDefault) estado.avatar = avatar
+    if (avatar != avatares.avatar1) estado.avatar = avatar
 
-    if (taskObject !== null) estado.tarefas = taskObject
-    if (taskObject == null) estado.tarefas = []
+    if (taskObject == null) {
+      estado.tarefas = []
+    } else {
+      estado.tarefas = taskObject
+    }
     
     if (theme !== `light`) {
       estado.theme = theme
