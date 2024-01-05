@@ -62,6 +62,9 @@ const tarefasFiltradas = () => {
   if (taskfiltered.length > 0) {
     return taskfiltered
   }
+  if(taskfiltered.length == undefined || taskfiltered.length == null){ 
+    console.log('erro')
+  }
 }
 
 const setEstadoEditing = (value) => {

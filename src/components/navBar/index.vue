@@ -2,8 +2,10 @@
 <script setup>
 import { useStatic } from '../../composables/useStatic'
 
-const { iconFlex,iconFlexDark,iconGrid1,iconGrid1Dark,iconGrid2,iconGrid2Dark } = useStatic()
+const { iconFlex,iconFlexDark,iconGrid1,iconGrid1Dark,iconGrid2,iconGrid2Dark, iconThemeDark,iconThemeLight } = useStatic()
 
+const { iconsAvatar } = useStatic()
+const avatares = iconsAvatar()
 
 
 const emit = defineEmits(['theme', 'avatar', 'display'])
@@ -17,11 +19,10 @@ const openChangeModal = () => {
 
 const changeAvatar = (avatar) => {
   const container = document.querySelector('.avatar__list')
-  emit('avatar', `/src/assets/images/avatar${avatar}.jpg`)
+  emit('avatar', avatar)
   props.saveAvatarInStorage()
   container.classList.remove('open')
 }
-
 
 </script>
 
@@ -31,7 +32,6 @@ const changeAvatar = (avatar) => {
       Lepane
       <span>sua lista de tarefas</span>
     </h1>
-
     <ul class="nav__settings">
       <li class="icon__display">
         <img
@@ -70,13 +70,13 @@ const changeAvatar = (avatar) => {
         <img
           v-if="props.theme === 'light'"
           @click="emit('theme', 'dark')"
-          src="../../assets/images/icons8-símbolo-da-lua-32.png"
+          :src="iconThemeDark"
           alt="theme"
         />
         <img
           v-else
           @click="emit('theme', 'light')"
-          src="../../assets/images/icons8-luz-acesa-32.png"
+          :src="iconThemeLight"
         />
       </li>
 
@@ -84,20 +84,20 @@ const changeAvatar = (avatar) => {
         <img
           @click="openChangeModal"
           class="img__avatar"
-          :src="props.avatar == null ? '/src/assets/images/avatar1.jpg' : props.avatar"
+          :src="props.avatar == null ? avatares.avatar1 : props.avatar"
           alt="avatar"
         />
       </li>
 
       <li class="avatar__list">
-        <img @click="changeAvatar('1')" src="../../assets/images//avatar1.jpg" alt="" />
-        <img @click="changeAvatar('2')" src="../../assets/images//avatar2.jpg" alt="" />
-        <img @click="changeAvatar('3')" src="../../assets/images//avatar3.jpg" alt="" />
-        <img @click="changeAvatar('4')" src="../../assets/images//avatar4.jpg" alt="" />
-        <img @click="changeAvatar('5')" src="../../assets/images//avatar5.jpg" alt="" />
-        <img @click="changeAvatar('6')" src="../../assets/images//avatar6.jpg" alt="" />
-        <img @click="changeAvatar('7')" src="../../assets/images//avatar7.jpg" alt="" />
-        <img @click="changeAvatar('8')" src="../../assets/images//avatar8.jpg" alt="" />
+        <img @click="changeAvatar(avatares.avatar1)" :src="avatares.avatar1" alt="" />
+        <img @click="changeAvatar(avatares.avatar2)" :src="avatares.avatar2" alt="" />
+        <img @click="changeAvatar(avatares.avatar3)" :src="avatares.avatar3" alt="" />
+        <img @click="changeAvatar(avatares.avatar4)" :src="avatares.avatar4" alt="" />
+        <img @click="changeAvatar(avatares.avatar5)" :src="avatares.avatar5" alt="" />
+        <img @click="changeAvatar(avatares.avatar6)" :src="avatares.avatar6" alt="" />
+        <img @click="changeAvatar(avatares.avatar7)" :src="avatares.avatar7" alt="" />
+        <img @click="changeAvatar(avatares.avatar8)" :src="avatares.avatar8" alt="" />
       </li>
     </ul>
   </div>

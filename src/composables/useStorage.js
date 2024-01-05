@@ -1,11 +1,14 @@
 import { useState } from './useState'
+import { useStatic } from './useStatic'
 
+const { iconsAvatar } = useStatic()
+const avatares = iconsAvatar()
 
 export const useStorage = () => {
   const keyTASK = 'TASKS'
   const keyTHEME = 'THEME'
   const keyAVATAR = 'AVATAR'
-  const avatarDefault = '/src/assets/images/avatar1.jpg'
+  const avatarDefault = avatares.avatar1
   const { estado } = useState()
 
   if (typeof Storage !== 'undefined') {
