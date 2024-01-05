@@ -29,12 +29,12 @@ export const useStorage = () => {
 
     if (theme == null) {
       estado.theme = 'light'
-
-      if (theme !== `light`) {
-        estado.theme = theme
-        const body = document.querySelector('body')
-        body.style.backgroundColor = '#060922'
-      }
+      return
+    }
+    if (theme !== `light`) {
+      estado.theme = theme
+      const body = document.querySelector('body')
+      body.style.backgroundColor = '#060922'
     }
     
   } else {
