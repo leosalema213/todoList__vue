@@ -1,14 +1,14 @@
-# todo_list
+# lepane sua lista de tarefas
+### https://lepane-todolist.vercel.app/
 
-This template should help get you started developing with Vue 3 in Vite.
+Esse foi um projeto para colocar em prática oque venho estudando sobre VueJS
+a ideia era criar um projeto organizado, e bem componentizado para facilitar manutenções futuras,
+apliquei tambem o conceito de composable, para ter funçôes reutilizaveis em todo o projeto.
 
-## Recommended IDE Setup
+- VueJS
+- SASS
+- JavaScript
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
@@ -20,16 +20,4 @@ npm install
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
