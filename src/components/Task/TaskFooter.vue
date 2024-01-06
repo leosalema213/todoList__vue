@@ -158,6 +158,11 @@ const setTaskStatus = (tarefa) => {
     flex-direction: column;
     margin-bottom: 16px;
     justify-content: center;
+
+    .task__actions .input__group {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 </style>

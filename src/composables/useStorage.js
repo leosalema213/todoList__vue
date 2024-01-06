@@ -1,8 +1,6 @@
 import { useState } from './useState'
 import { useStatic } from './useStatic'
 
-const { iconsAvatar } = useStatic()
-const avatares = iconsAvatar()
 
 export const useStorage = () => {
   const keyTASK = 'TASKS'
@@ -10,6 +8,9 @@ export const useStorage = () => {
   const keyAVATAR = 'AVATAR'
 
   const { estado } = useState()
+  const { iconsAvatars } = useStatic()
+  const avatares = iconsAvatars()
+
 
   if (typeof Storage !== 'undefined') {
     const avatar = localStorage.getItem(keyAVATAR)
@@ -29,8 +30,8 @@ export const useStorage = () => {
 
     if (theme == null) {
       estado.theme = 'light'
-      
     }
+
     if (theme == `dark`) {
       estado.theme = theme
       const body = document.querySelector('body')

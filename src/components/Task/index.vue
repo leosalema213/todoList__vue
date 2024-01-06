@@ -18,7 +18,8 @@ const estado = reactive({
   }
 })
 
-const saveEditing = (id) => {
+const saveEditing = (id) => 
+{
   estado.editingTask.id = id
   emit('editTask', estado.editingTask)
 
@@ -28,7 +29,8 @@ const saveEditing = (id) => {
   estado.editingTask.status = ''
 }
 
-const nameEditing = (e) => {
+const nameEditing = (e) => 
+{
   estado.editingTask.name = e
 }
 
@@ -61,9 +63,6 @@ const tarefasFiltradas = () => {
   }
   if (taskfiltered.length > 0) {
     return taskfiltered
-  }
-  if(taskfiltered.length == undefined || taskfiltered.length == null){ 
-    console.log('erro')
   }
 }
 

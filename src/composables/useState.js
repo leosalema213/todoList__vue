@@ -2,8 +2,8 @@ import { reactive } from 'vue'
 import { useStatic } from '../composables/useStatic'
 
 export const useState = () => {
-  const { iconsAvatar } = useStatic()
-  const { avatar1 } = iconsAvatar()
+  const { iconsAvatars } = useStatic()
+  const { avatar1 } = iconsAvatars()
 
   const estado = reactive({
     tarefas: [],

@@ -1,27 +1,29 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { ref } from 'vue';
 import { useStatic } from '../../composables/useStatic'
 
-const { iconFlex,iconFlexDark,iconGrid1,iconGrid1Dark,iconGrid2,iconGrid2Dark, iconThemeDark,iconThemeLight } = useStatic()
-
-const { iconsAvatar } = useStatic()
-const avatares = iconsAvatar()
-
-
 const emit = defineEmits(['theme', 'avatar', 'display'])
-
 const props = defineProps(['avatar', 'saveAvatarInStorage', 'theme', 'display'])
+const { iconsAvatars, iconsDisplay, iconsTheme } = useStatic()
+
+
+const avatarImg = iconsAvatars()
+const displayImg = iconsDisplay()
+const themeImg = iconsTheme()
+const avatarList = ref(null)
+
+
+
 
 const openChangeModal = () => {
-  const container = document.querySelector('.avatar__list')
-  container.classList.toggle('open')
+  avatarList.value.classList.toggle('open')
 }
 
 const changeAvatar = (avatar) => {
-  const container = document.querySelector('.avatar__list')
   emit('avatar', avatar)
+  avatarList.value.classList.remove('open')
   props.saveAvatarInStorage()
-  container.classList.remove('open')
 }
 
 </script>
@@ -39,8 +41,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'grid1')"
           :src="
             props.theme == 'dark'
-              ? iconGrid1Dark
-              : iconGrid1
+              ? displayImg.iconGrid1Dark
+              : displayImg.iconGrid1
           "
           alt="display"
         />
@@ -50,8 +52,8 @@ const changeAvatar = (avatar) => {
           class="icon__grid2"
           :src="
             props.theme == 'dark'
-              ? iconGrid2Dark
-              : iconGrid2
+              ? displayImg.iconGrid2Dark
+              : displayImg.iconGrid2
           "
           alt="display"
         />
@@ -60,8 +62,8 @@ const changeAvatar = (avatar) => {
           @click="emit('display', 'flex')"
           :src="
             props.theme == 'dark'
-              ? iconFlexDark
-              : iconFlex
+              ? displayImg.iconFlexDark
+              : displayImg.iconFlex
           "
         />
       </li>
@@ -70,13 +72,13 @@ const changeAvatar = (avatar) => {
         <img
           v-if="props.theme === 'light'"
           @click="emit('theme', 'dark')"
-          :src="iconThemeDark"
+          :src="themeImg.iconThemeDark"
           alt="theme"
         />
         <img
           v-else
           @click="emit('theme', 'light')"
-          :src="iconThemeLight"
+          :src="themeImg.iconThemeLight"
         />
       </li>
 
@@ -84,20 +86,20 @@ const changeAvatar = (avatar) => {
         <img
           @click="openChangeModal"
           class="img__avatar"
-          :src="props.avatar == null ? avatares.avatar1 : props.avatar"
+          :src="props.avatar == null ? avatarImg.avatar1 : props.avatar"
           alt="avatar"
         />
       </li>
 
-      <li class="avatar__list">
-        <img @click="changeAvatar(avatares.avatar1)" :src="avatares.avatar1" alt="" />
-        <img @click="changeAvatar(avatares.avatar2)" :src="avatares.avatar2" alt="" />
-        <img @click="changeAvatar(avatares.avatar3)" :src="avatares.avatar3" alt="" />
-        <img @click="changeAvatar(avatares.avatar4)" :src="avatares.avatar4" alt="" />
-        <img @click="changeAvatar(avatares.avatar5)" :src="avatares.avatar5" alt="" />
-        <img @click="changeAvatar(avatares.avatar6)" :src="avatares.avatar6" alt="" />
-        <img @click="changeAvatar(avatares.avatar7)" :src="avatares.avatar7" alt="" />
-        <img @click="changeAvatar(avatares.avatar8)" :src="avatares.avatar8" alt="" />
+      <li ref="avatarList" class="avatar__list">
+        <img @click="changeAvatar(avatarImg.avatar1)" :src="avatarImg.avatar1" alt="" />
+        <img @click="changeAvatar(avatarImg.avatar2)" :src="avatarImg.avatar2" alt="" />
+        <img @click="changeAvatar(avatarImg.avatar3)" :src="avatarImg.avatar3" alt="" />
+        <img @click="changeAvatar(avatarImg.avatar4)" :src="avatarImg.avatar4" alt="" />
+        <img @click="changeAvatar(avatarImg.avatar5)" :src="avatarImg.avatar5" alt="" />
+        <img @click="changeAvatar(avatarImg.avatar6)" :src="avatarImg.avatar6" alt="" />
+        <img @click="changeAvatar(avatarImg.avatar7)" :src="avatarImg.avatar7" alt="" />
+        <img @click="changeAvatar(avatarImg.avatar8)" :src="avatarImg.avatar8" alt="" />
       </li>
     </ul>
   </div>

@@ -4,7 +4,8 @@ import {useStatic} from '../../composables/useStatic'
 
 const props = defineProps(['tarefa', 'isEditing', 'deleteTask','theme', 'display'])
 const emit = defineEmits(['editing', 'nameEditing'])
-const { iconLapis, iconLapisDark, iconLixo, iconLixoDark  } = useStatic()
+const { iconsTask } = useStatic()
+const taskImg = iconsTask()
 
 </script>
 
@@ -24,21 +25,21 @@ const { iconLapis, iconLapisDark, iconLixo, iconLixoDark  } = useStatic()
     <div v-if="props.theme == 'dark'" class="task__options">
       <img
         @click="emit('editing', tarefa.id)"
-        :src="iconLapisDark"
+        :src="taskImg.iconLapisDark"
         alt="edit"
       />
 
-      <img @click="deleteTask(tarefa.id)" :src="iconLixoDark" alt="del" />
+      <img @click="deleteTask(tarefa.id)" :src="taskImg.iconLixoDark" alt="del" />
     </div>
 
     <div v-else class="task__options">
       <img
         @click="emit('editing', tarefa.id)"
-        :src="iconLapis"
+        :src="taskImg.iconLapis"
         alt="edit"
       />
 
-      <img @click="deleteTask(tarefa.id)" :src="iconLixo" alt="del" />
+      <img @click="deleteTask(tarefa.id)" :src="taskImg.iconLixo" alt="del" />
     </div>
   </div>
 </template>
